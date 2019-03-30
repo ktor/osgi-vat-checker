@@ -8,6 +8,10 @@ Implementation uses API for service available on [EU VIES pages][1]. Current ver
 # Installation
 Build and install both api and implementation jars on your osgi container. 
 
+## Build
+```bash
+$ ./gradlew build # to build both jars jar
+```
 ## Usage
 ### Gradle project
 `build.gradle`:

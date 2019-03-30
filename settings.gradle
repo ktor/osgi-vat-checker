@@ -1,0 +1,4 @@
+rootProject.name = 'vat-checker'
+include 'vat-checker-api'
+include 'vat-checker-service'
+

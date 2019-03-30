@@ -1,0 +1,24 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'biz.aQute.bnd:biz.aQute.bnd.gradle:4.2.0'
+    }
+}
+apply plugin: 'java'
+apply plugin: 'biz.aQute.bnd.builder'
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = project.group
+            artifactId = "${jar.baseName}"
+            version = "${jar.version}"
+
+            from components.java
+        }
+    }
+}
+

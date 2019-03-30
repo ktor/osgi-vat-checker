@@ -1,0 +1,78 @@
+buildscript {
+    dependencies {
+        classpath "gradle.plugin.com.liferay:gradle-plugins-wsdl-builder:2.0.3"
+        classpath 'biz.aQute.bnd:biz.aQute.bnd.gradle:4.2.0'
+        classpath 'biz.aQute.bnd:biz.aQute.bndlib:4.0.0'
+    }
+}
+plugins {
+    id 'io.spring.dependency-management' version '1.0.1.RELEASE'
+}
+apply plugin: 'java'
+apply plugin: 'biz.aQute.bnd.builder'
+apply plugin: "com.liferay.wsdl.builder"
+
+sourceSets {
+    main.java.srcDir new File(buildDir, "generated/sources")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.apache.logging.log4j:log4j-bom:2.11.2'
+    }
+}
+dependencies {
+    compileOnly project(":vat-checker-api")
+    compileOnly "org.osgi:org.osgi.service.component.annotations:1.4.0"
+    compileOnly "org.apache.axis:axis-jaxrpc:1.4"
+    compileOnly "org.apache.axis:axis:1.4"
+    compileOnly 'org.slf4j:slf4j-api:1.7.25'
+
+/*    
+    compileOnly "org.apache.axis:axis-jaxrpc:1.4"
+    compileOnly "org.apache.axis:axis:1.4"
+    compileOnly "axis:axis-wsdl4j:1.5.1"
+    compileOnly 'org.apache.logging.log4j:log4j-api'
+    compileOnly 'org.apache.logging.log4j:log4j-core'
+    compileOnly 'org.apache.logging.log4j:log4j-to-slf4j'
+    compileOnly 'org.slf4j:jcl-over-slf4j:1.7.25'
+    compileOnly 'org.slf4j:slf4j-api:1.7.25'*/
+
+    testCompileOnly(
+            project(":vat-checker-api"),
+            "org.apache.axis:axis-jaxrpc:1.4",
+            "org.apache.axis:axis:1.4",
+            'org.slf4j:slf4j-api:1.7.25',
+    )
+
+    testImplementation(
+            'org.junit.jupiter:junit-jupiter-api:5.3.1',
+    )
+    testRuntimeOnly(
+            'org.osgi:org.osgi.core:6.0.0',
+            'axis:axis-wsdl4j:1.5.1',
+            'javax.activation:activation:1.1.1',
+            "commons-discovery:commons-discovery:0.5",
+            "org.apache.axis:axis:1.4",
+            "org.junit.jupiter:junit-jupiter-engine:5.3.1",
+            "org.junit.vintage:junit-vintage-engine:5.2.0",
+            'org.apache.logging.log4j:log4j-api',
+            'org.apache.logging.log4j:log4j-core',
+            'org.apache.logging.log4j:log4j-to-slf4j',
+            'org.slf4j:jcl-over-slf4j:1.7.25',
+            project(":vat-checker-api"),
+            "org.apache.axis:axis-jaxrpc:1.4",
+            'org.slf4j:slf4j-simple:1.7.25',
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+buildWSDL {
+    buildLibs = false
+    destinationDir = new File("${project.buildDir}/generated/sources")
+}
+

@@ -12,12 +12,14 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'biz.aQute.bnd.builder'
 apply plugin: "com.liferay.wsdl.builder"
+apply plugin: 'jacoco'
 
 compileJava {
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 }
 
+tasks.check.dependsOn jacocoTestReport
 tasks.compileJava.dependsOn {
     buildWSDL
 }
@@ -85,5 +87,11 @@ test {
     useJUnitPlatform()
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
 
 

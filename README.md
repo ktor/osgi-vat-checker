@@ -16,12 +16,13 @@ dependencies {
     compileOnly 'pl.ktor.vat:vat-checker-api:1.0.0'
 }
 ```
+### Example in gogo shell command
 ```java
 @Component(
         property = {"osgi.command.function=checkvat", "osgi.command.scope=custom"},
         service = Object.class
 )
-public class LukreoCommand {
+public class ExampleCommand {
 
     @Reference
     private volatile VatChecker vatChecker;

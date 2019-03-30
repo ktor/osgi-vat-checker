@@ -13,7 +13,6 @@
 **/.web_bundle_build
 *.orig
 .gradle
-/gradle
 .idea
 /bundles
 /gradle-*.properties

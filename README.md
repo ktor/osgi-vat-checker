@@ -1,7 +1,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Build Status](https://travis-ci.org/ktor/osgi-vat-checker.svg?branch=master)](https://travis-ci.org/ktor/osgi-vat-checker)
 [![codecov](https://codecov.io/gh/ktor/osgi-vat-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/ktor/osgi-vat-checker)
 # OSGI VIES VAT number validation
-The project contains two osgi bundler API/Implementation that allow online EU VAT number validation.
+The project contains two osgi bundles API/Implementation that allow online EU VAT number validation.
 
 Implementation uses API for service available on [EU VIES pages][1]. Current version of the API and documentation is available at [technical information pages][2].
 

@@ -87,12 +87,6 @@ public class ExampleCommand {
 
 ```bash
 $ telnet localhost 11311
-Trying ::1...
-Connection failed: Connection refused
-Trying 127.0.0.1...
-Connected to localhost.
-Escape character is '^]'.
-____________________________
 Welcome to Apache Felix Gogo
 
 g! checkvat "SK" "2020216748"

@@ -8,19 +8,42 @@ buildscript {
 }
 apply plugin: 'java'
 apply plugin: 'biz.aQute.bnd.builder'
+apply plugin: 'java-library'
 apply plugin: 'maven-publish'
 
 compileJava {
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 }
-
 publishing {
     publications {
         maven(MavenPublication) {
             groupId = project.group
             artifactId = "${jar.baseName}"
             version = "${jar.version}"
+            pom {
+                name = 'OSGi VIES VAT checker API'
+                description = 'The library models online EU VAT number validation with VAT Information Exchange System (VIES). Implementation is provided with vat-checker-service artifact.'
+                url = 'https://github.com/ktor/osgi-vat-checker'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'ktor'
+                        name = 'Pawel Kruszewski'
+                        email = 'pawel@synus.org'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/synus-org/osgi-vat-checker.git'
+                    developerConnection = 'scm:git:ssh://github.com/synus-org/osgi-vat-checker.git'
+                    url = 'https://github.com/synus-org/osgi-vat-checker'
+                }
+            }
 
             from components.java
         }

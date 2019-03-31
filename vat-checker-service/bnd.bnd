@@ -1,3 +1,3 @@
-Bundle-Name: vat-checker-service
-Bundle-SymbolicName: vat.checker.service
-Bundle-Version: 1.0.0
+Bundle-Name: ${project.name}
+Bundle-SymbolicName: ${project.group}.${project.name}
+Bundle-Version: ${project.version}

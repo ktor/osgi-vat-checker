@@ -1,4 +1,4 @@
 Bundle-Name: ${project.name}
-Bundle-SymbolicName: ${project.group}
+Bundle-SymbolicName: ${project.group}.${project.name}
 Bundle-Version: ${project.version}
-Export-Package: pl.ktor.vat.api.*
+Export-Package: org.synus.vies.api.*

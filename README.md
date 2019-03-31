@@ -1,16 +1,20 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Build Status](https://travis-ci.org/synus-org/osgi-vat-checker.svg?branch=master)](https://travis-ci.org/synus-org/osgi-vat-checker)
 [![codecov](https://codecov.io/gh/synus-org/osgi-vat-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/synus-org/osgi-vat-checker)
-# OSGI VIES VAT number validation
-The project contains two osgi bundler API/Implementation that allow online EU VAT number validation.
+# OSGi VIES VAT number validation
+## About
+The project contains two OSGi bundles that provide online EU VAT number validation with VAT Information Exchange System ([VIES][1]).
+
+1. `vat-checker-api.jar` - Java model for VIES API
+1. `vat-checker-service.jar` - service client that uses classes generated from [WSDL published][2] by VIES
 
 ## API
-Bundles offers simple Java service interface and implementation:
+Bundle offers simple Java service interface:
 ```java
 package org.synus.vies.api;
 public interface VatChecker {
-    public VatCheckerResult checkVat(Country country, String vatNumber);
+    VatCheckerResult checkVat(Country country, String vatNumber);
 ```
-The implementation catches all exceptions (logs them with slf4j) and always returns a result instance of type below. 
+The implementation catches all exceptions (logs them with slf4j) and always returns a result instance of type:
 ```java
 // ...
 public class VatCheckerResult {
@@ -26,7 +30,7 @@ public class VatCheckerResult {
 ```
 
 ## Result and error handling
-The instance can be in following states:
+Returned `VatCheckerResult` instance can be in following states:
 1. VAT valid: `valid=true`
 1. VAT invalid: `valid=false` and `error` is empty
 1. VAT checker error: `valid=false` and `error` has enum value 
@@ -50,9 +54,10 @@ The instance can be in following states:
 # Installation
 Build and install both api and implementation jars on your osgi container. 
 
-## Build
 ```bash
 $ ./gradlew build # to build both jars jar
+$ cp vat-checker-api/build/libs/vat-checker-api-1.0.0.jar $MY_OSGI_CONTAINER
+$ cp vat-checker-service/build/libs/vat-checker-service-1.0.0.jar $MY_OSGI_CONTAINER
 ```
 ## Usage
 ### Gradle project

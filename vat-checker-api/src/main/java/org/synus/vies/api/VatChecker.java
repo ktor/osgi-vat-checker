@@ -27,5 +27,5 @@ public interface VatChecker {
      *         2) VAT invalid: `valid=false` and `error` is empty,
      *         3) VAT checker error: `valid=false` and `error` has enum value
      */
-    public VatCheckerResult checkVat(Country country, String vatNumber);
+    VatCheckerResult checkVat(Country country, String vatNumber);
 }

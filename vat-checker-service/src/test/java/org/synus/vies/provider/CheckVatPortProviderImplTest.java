@@ -46,7 +46,4 @@ class CheckVatPortProviderImplTest {
         assertNotNull(checkVatPortProvider.getCheckVatPort());
     }
 
-    @Test
-    void getCheckVatPortExceptions() {
-    }
 }

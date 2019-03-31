@@ -12,6 +12,7 @@
 **/tmp
 **/.web_bundle_build
 *.orig
+**/out
 .gradle
 .idea
 /bundles

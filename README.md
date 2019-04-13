@@ -1,5 +1,6 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Build Status](https://travis-ci.org/synus-org/osgi-vat-checker.svg?branch=master)](https://travis-ci.org/synus-org/osgi-vat-checker)
 [![codecov](https://codecov.io/gh/synus-org/osgi-vat-checker/branch/master/graph/badge.svg)](https://codecov.io/gh/synus-org/osgi-vat-checker)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=synus-org_osgi-vat-checker&metric=alert_status)](https://sonarcloud.io/dashboard?id=synus-org_osgi-vat-checker)
 # OSGi VIES VAT number validation
 ## About
 The project contains two OSGi bundles that provide online EU VAT number validation with VAT Information Exchange System ([VIES][1]).

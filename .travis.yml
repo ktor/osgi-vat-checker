@@ -1,4 +1,9 @@
 language: java
+addons:
+  sonarcloud:
+    organization: "synus-org"
+script:
+  - sonar-scanner
 jdk:
   - oraclejdk8
 after_success:

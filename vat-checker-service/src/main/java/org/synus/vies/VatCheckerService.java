@@ -60,11 +60,11 @@ public class VatCheckerService implements VatChecker {
                     addressHolder
             );
         } catch (AxisFault e) {
-            error = VatCheckerError.valueOf(e.getFaultString());
+            error = VatCheckerError.valueOfOrDefault(e.getFaultString());
             LOG.warn("Error while checking VAT: {}", e.getFaultString());
         } catch (Exception e) {
             error = VatCheckerError.UNEXPECTED;
-            LOG.error("Unexpected remote exception", e);
+            LOG.error("Unexpected exception", e);
         }
 
         VatCheckerResult vatCheckerResult = new VatCheckerResult(

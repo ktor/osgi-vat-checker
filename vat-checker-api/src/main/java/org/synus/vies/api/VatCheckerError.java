@@ -32,5 +32,14 @@ public enum VatCheckerError {
     GLOBAL_MAX_CONCURRENT_REQ_TIME,
     MS_MAX_CONCURRENT_REQ,
     MS_MAX_CONCURRENT_REQ_TIME,
-    UNEXPECTED,
+    UNEXPECTED, // default
+    ;
+
+    public static VatCheckerError valueOfOrDefault(String faultString) {
+        try {
+            return VatCheckerError.valueOf(faultString);
+        } catch (IllegalArgumentException e) {
+            return UNEXPECTED;
+        }
+    }
 }

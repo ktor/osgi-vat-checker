@@ -67,7 +67,7 @@ public class VatCheckerService implements VatChecker {
             LOG.error("Unexpected exception", e);
         }
 
-        VatCheckerResult vatCheckerResult = new VatCheckerResult(
+        return new VatCheckerResult(
                 Country.valueOf(countryCodeHolder.value),
                 vatNumberHolder.value,
                 requestDateHolder.value,
@@ -76,7 +76,5 @@ public class VatCheckerService implements VatChecker {
                 addressHolder.value,
                 error
         );
-
-        return vatCheckerResult;
     }
 }

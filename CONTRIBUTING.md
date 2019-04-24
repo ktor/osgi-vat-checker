@@ -1,7 +1,7 @@
 # Thank you
 ## for considering contribution :) 
 
-# TLDR
+# TL;DR
 
 1. find issue for the problem
 1. if not found create one
